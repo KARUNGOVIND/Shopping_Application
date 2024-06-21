@@ -1,0 +1,76 @@
+/* .Dark{
+    background-color: aliceblue;
+}
+.Light{
+    background-color: aqua;
+} */
+.nav{
+    height: 5rem;
+    width: 100%;
+    display: flex;
+    
+    /* padding: 20px; */
+    list-style-type: none;
+    margin: 0%;
+
+}
+.topl{
+    margin-top: 10px;
+    padding: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    
+}
+.logo{
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    padding: 20px;
+
+}
+.header{
+    color:rgb(169, 230, 193) ;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 40px;
+    text-align: center;
+    color: rgb(151, 181, 113)
+}
+.header1{
+    margin: 0;
+}
+.line{
+    text-decoration: none;
+    color: black;
+}
+
+.Dark .header1 {
+    background-color: rgb(48, 64, 79);
+
+}
+.Dark .header1 *{
+    color: white;
+}
+.Light .header1 {
+    background-color: rgb(246, 248, 249);
+}
+
+.Dark .nav{
+    background-color: rgb(22, 24, 37);
+}
+.Light .nav{
+    background-color: rgb(222, 219, 214);
+}
+
+
+.button{
+    padding-left: 10px;
+    padding-bottom: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    margin-top: -20px;
+    text-align: center;
+    align-items: center;
+}
+.Dark.button{
+    background-color: aqua;
+    color: black;
+}

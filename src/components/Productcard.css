@@ -1,0 +1,70 @@
+/* Products.css */
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    padding: 40px;
+}
+
+.ProductCard {
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+
+.ProductCard:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    background: linear-gradient(135deg, #e9ecef, #dee2e6);
+}
+
+.ProductCard .Image {
+    width: 80%;
+    height:60%;
+    border-radius: 15px 15px 0 0;
+    transition: transform 0.3s ease;
+}
+
+.ProductCard:hover .Image {
+    transform: scale(1.05);
+}
+
+.ProductCard .title {
+    font-size: 1.6em;
+    font-weight: bold;
+    margin: 14px 0;
+    color: #343a40;
+    transition: color 0.3s ease;
+}
+
+.ProductCard .description {
+    font-size: 1em;
+    color: #6c757d;
+    margin: 12px 0;
+}
+
+.ProductCard:hover .description {
+    color: #343a40;
+}
+
+.ProductCard .val {
+    font-size: 1.6em;
+    color: #0e141a;
+    margin: 12px 0;
+    font-weight: bold;
+}
+
+.ProductCard:hover .title {
+    color: #007BFF;
+}
+
+.ProductCard:hover .val {
+    color: rgb(214, 98, 62);
+}
