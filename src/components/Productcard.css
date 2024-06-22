@@ -1,22 +1,24 @@
-/* Products.css */
 .container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 40px;
-    padding: 40px;
+    gap: 20px;
+    padding: 20px;
 }
 
 .ProductCard {
     border: 1px solid #ddd;
     border-radius: 15px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    padding: 30px;
     background: linear-gradient(135deg, #f8f9fa, #e9ecef);
     transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
     cursor: pointer;
     overflow: hidden;
     position: relative;
     text-align: center;
+    width: 100%; /* Ensure the card adapts to the grid size */
+    max-width: 300px; /* Ensure the card doesn't exceed its container */
+    margin: 0 auto;
+    padding: 50px;
 }
 
 .ProductCard:hover {
@@ -26,8 +28,9 @@
 }
 
 .ProductCard .Image {
-    width: 80%;
-    height:60%;
+    width: 100%;
+    height: auto; /* Ensure the image retains its aspect ratio */
+    object-fit: cover; /* Ensures the image covers the area while maintaining aspect ratio */
     border-radius: 15px 15px 0 0;
     transition: transform 0.3s ease;
 }
@@ -67,4 +70,21 @@
 
 .ProductCard:hover .val {
     color: rgb(214, 98, 62);
+}
+
+.topbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-bottom: 1px solid #ddd;
+}
+
+.topbar select, .topbar input {
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1em;
 }

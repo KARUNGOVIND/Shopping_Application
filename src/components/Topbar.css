@@ -1,0 +1,36 @@
+.topbar {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background-color: rgb(22, 24, 37);
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    
+    margin-bottom: 20px;
+}
+
+.topbar select,
+.topbar input {
+    margin-right: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    color: #333;
+}
+
+.topbar select {
+    background-color: #fff;
+    width: 150px;
+}
+
+.topbar input {
+    width: 200px; /* Set a fixed width for the input */
+    background-color: #fff;
+}
+
+.topbar select:focus,
+.topbar input:focus {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}

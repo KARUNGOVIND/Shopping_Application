@@ -4,19 +4,18 @@ import './Productcard.css';
 import Topbar from './Topbar';
 
 function Products() {
-    const [ApiRes,SetApiRes]=useState([]);
+    const [ApiRes, SetApiRes] = useState([]);
     const [list, setList] = useState([]);
     const [uniqueCategories, setUniqueCategories] = useState([]);
-    const [categories,setcategory]=useState();
-    
-    
+    const [categories, setCategory] = useState('');
+    const [searchTerm, setSearchTerm] = useState('');
 
     useEffect(() => {
         fetch("https://mocki.io/v1/72f8d1e9-055c-4e6b-bd6a-630de0dad7f4")
             .then((res) => res.json())
             .then((json) => {
                 SetApiRes(json);
-                console.log(json);
+                
             })
             .catch((error) => console.error('Error fetching data:', error));
     }, []);
@@ -28,34 +27,36 @@ function Products() {
         setUniqueCategories(uniqueCategoriesArray);
     }, [ApiRes]);
 
-    // console.log(uniqueCategories)
-    // console.log(categories)
+    useEffect(() => {
+        let filteredList = ApiRes;
 
-    useEffect(()=>{
-        if(categories===""){
-            setList(ApiRes)
-            console.log(list)
+        if (categories) {
+            filteredList = filteredList.filter(product => product.category === categories);
         }
-        else{
-        const res=ApiRes.filter(obj=>obj.category===categories)
-        setList(res)
-    }
-    },[categories])
 
-    useEffect(()=>{
-        const res=ApiRes.filter(obj=>obj.category===categories)
-            setList(ApiRes)
-    },[ApiRes])
+        if (searchTerm) {
+            filteredList = filteredList.filter(product => 
+                product.title.toLowerCase().includes(searchTerm.toLowerCase())
+            );
+        }
+
+        setList(filteredList);
+    }, [categories, searchTerm, ApiRes]);
+
     return (
         <>
-        <div>
-        <Topbar category={uniqueCategories} setcategory={setcategory} />
-        </div>
-        <div className="container">
+            <div>
+                <Topbar 
+                    category={uniqueCategories} 
+                    setCategory={setCategory} 
+                    setSearchTerm={setSearchTerm} 
+                />
+            </div>
+            <div className="container">
                 {list.map((product) => (
-                    <ProductCard product={product} categories={categories}/>
+                    <ProductCard key={product.id} product={product} />
                 ))}
-        </div>
+            </div>
         </>
     );
 }

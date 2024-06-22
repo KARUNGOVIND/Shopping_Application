@@ -1,17 +1,30 @@
-import React from 'react'
+import React from 'react';
+import './Topbar.css';
 
 function Topbar(props) {
-    console.log("Topbar",props.category)
-    const Handlecategory=(e)=>{
-        props.setcategory(e.target.value);
+    const handleCategoryChange = (e) => {
+        props.setCategory(e.target.value);
     }
-  return (
-    <div>
-        <select onChange={Handlecategory}>
-            <option value="">Select...</option>
-            {props.category.map((i)=><option  value={i}>{i}</option>)}
-       </select>
-    </div>
-  )
+
+    const handleSearchChange = (e) => {
+        props.setSearchTerm(e.target.value);
+    }
+
+    return (
+        <div className="topbar">
+            <select onChange={handleCategoryChange}>
+                <option value="">Select...</option>
+                {props.category.map((i, index) => (
+                    <option key={index} value={i}>{i}</option>
+                ))}
+            </select>
+            <input 
+                type="text" 
+                placeholder="Search by title..." 
+                onChange={handleSearchChange} 
+            />
+        </div>
+    );
 }
-export default Topbar
+
+export default Topbar;
