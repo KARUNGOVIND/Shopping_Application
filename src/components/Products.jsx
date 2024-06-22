@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import ProductCard from './ProductCard';
 import './Productcard.css';
 import Topbar from './Topbar';
+import Counter from './Counter';
+import App from '../App';
 
 function Products() {
     const [ApiRes, SetApiRes] = useState([]);
@@ -45,6 +47,7 @@ function Products() {
 
     return (
         <>
+        <App/>
             <div>
                 <Topbar 
                     category={uniqueCategories} 
@@ -52,6 +55,7 @@ function Products() {
                     setSearchTerm={setSearchTerm} 
                 />
             </div>
+            
             <div className="container">
                 {list.map((product) => (
                     <ProductCard key={product.id} product={product} />
